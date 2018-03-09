@@ -1,8 +1,14 @@
-#startingPlayerRow {
-
+body {
+  background-image: url('../images/background2.jpg'); 
 }
 
 .img-responsive {
   /* min-width: 100px;
   min-width: 100px;  */
+}
+
+.panel {
+  /* border: 0; 
+  opacity: .5; */
+  /* background-color: black;  */
 }

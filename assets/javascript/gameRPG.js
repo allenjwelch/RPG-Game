@@ -73,8 +73,9 @@ function gamePlay() {
 
   }); // END on.click ()
     
-  $('#fight').on('click', '.btn', function() {
+  $('#display').on('click', '#fight', function() {
      console.log('button clicked!'); 
+     
   }); 
 
 
