@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/styleRPG.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <title>RPG</title>
+</head>
+
+<body>
+
+  <section class="container">
+    <header class="row"> <!--Title Row-->
+      <h1>RPG Game</h1>
+    </header> <!--END Title Row-->
+
+    <!--Each character in the game has 3 attributes: Health Points, Attack Power and Counter Attack Power.-->
+
+
+    <div id ="startingPlayerRow" class="row">  <!-- Top Row -->
+      <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3"> <!-- Column 1/4 -->
+        <div class="panel panel-default">
+            <div class="panel-body">
+              <img id="mecha" class="img-responsive characters" src="assets/images/mechaGodzilla.png" alt="mecha Godzilla">
+            </div>
+        </div>
+      </div> <!-- END Column 1/4 -->
+
+      <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3"> <!-- Column 2/4 -->
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <img id="zord" class="img-responsive characters" src="assets/images/megaZord.png" alt="mega zord">
+            </div>
+        </div>
+      </div> <!-- END Column 2/4 -->
+
+      <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3"> <!-- Column 3/4 -->
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <img id="iron" class="img-responsive characters" src="assets/images/ironGiant.png" alt="iron giant">
+            </div>
+        </div>
+      </div> <!-- END Column 3/4 -->
+
+      <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3"> <!-- Column 4/4 -->
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <img id="gundam" class="img-responsive characters" src="assets/images/gundam2.png" alt="gundam">
+            </div>
+        </div>
+      </div> <!-- END Column 4/4 -->
+
+    </div> <!-- END Top Row -->
+
+
+    <div class="row">  <!-- Middle Row -->
+      <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8"> <!-- Column 1/2 -->
+        <div class="panel panel-default">
+            <div id = "display" class="panel-body">Score, HP, etc...
+              <button type="button" id="fight" class="btn btn-danger btn-lg">FIGHT!</button><br>
+
+            </div>
+        </div>
+      </div> <!-- END Column 1/2 -->
+
+      <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4"> <!-- Column 2/2 -->
+        <div class="panel panel-default">
+            <div class="panel-body">A Basic Panel</div>
+        </div>
+      </div> <!-- END Column 2/2 -->
+
+    </div> <!-- END Middle Row -->
+
+    <div class="row">  <!-- Bottom Row -->
+      <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6"> <!-- Column 1/2 -->
+        <div class="panel panel-default">
+            <div class="panel-body playerBox">Player Box</div>
+        </div>
+      </div> <!-- END Column 1/2 -->
+
+      <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6"> <!-- Column 2/2 -->
+        <div class="panel panel-default">
+            <div class="panel-body defenderBox">Defender Box</div>
+        </div>
+      </div> <!-- END Column 2/2 -->
+
+    </div> <!-- END Bottom Row -->
+
+
+  </section>
+
+  <br>
+  <footer class="navbar-default navbar-fixed-bottom">
+          <div class="container-fluid" id="footer">
+              <p>&copy Copyright 2018 Allen Welch</p>
+          </div>
+  </footer>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/javascript/gameRPG.js"></script>
+</body>
+</html>
