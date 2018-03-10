@@ -12,6 +12,7 @@ var userHP = 0;
 var defenderHP = 0; 
 var defenderCAP = 0;  
 var explosion; 
+var audio = new Audio("../RPG-Game/assets/images/explosion.mp3");
 
 
 // attribute variables
@@ -138,8 +139,7 @@ $(document).ready(function(){
         $('#defenderHP').text(defenderHP); 
         $('#defenderCAP').text(defenderCAP); 
         
-        // $('#zordStats').prependTo('.defenderStats'); 
-        
+       
         
       } else if (userPlayer === true && defenderPlayer === true) {
         return; 
@@ -176,10 +176,7 @@ $(document).ready(function(){
     function checkVictory() {
       if (defenderHP <= 0) {
         alert('Victory'); 
-        
-        // explosion = setTimeout(function(){
-          // }, 3000);
-
+        audio.play(); 
         defenderExplosion();  
         defender.hide(); 
         defenderPlayer = false; 
@@ -192,6 +189,7 @@ $(document).ready(function(){
     function checkDefeat() {
       if (userHP <= 0) {
         alert('Defeat!'); 
+        audio.play(); 
         userExplosion(); 
         user.hide(); 
         userPlayer = false; 
@@ -256,13 +254,13 @@ $(document).ready(function(){
     
     ///Explostion functions
     function defenderExplosion() {
-      $('.defenderBox').html("<img id='explode' src='../RPG-Game/assets/images/explode.gif' alt ='image' />");
+      $('.defenderBox').append("<img id='explode' src='../RPG-Game/assets/images/explode.gif' alt ='image' />");
       $('#explode').animate({ opacity: "1"});
       setTimeout(clearExplosion, 2000); 
     }
 
-    function userExplosion() { //----------------issue with userExplosion
-      $('.playerBox').html("<img id='explode' src='../RPG-Game/assets/images/explode.gif' alt ='image' />");
+    function userExplosion() { 
+      $('.playerBox').append("<img id='explode' class 'img-responsive' src='../RPG-Game/assets/images/explode.gif' alt ='image' />");
       $('#explode').animate({ opacity: "1"});
       setTimeout(clearExplosion, 2000); 
     }
@@ -270,7 +268,6 @@ $(document).ready(function(){
     function clearExplosion() {
       $('#explode').animate({ opacity: "0"});
       $('#explode').remove(); 
-      // $('.defenderBox').html("<img src='../RPG-Game/assets/images/explode.gif' alt ='image' />");
     }
 
 
