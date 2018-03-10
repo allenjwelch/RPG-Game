@@ -176,11 +176,11 @@ $(document).ready(function(){
     function checkVictory() {
       if (defenderHP <= 0) {
         alert('Victory'); 
-        // $('.defenderBox').html("<img src='../images/explosion.gif'/>");
         
         // explosion = setTimeout(function(){
           // }, 3000);
 
+        defenderExplosion();  
         defender.hide(); 
         defenderPlayer = false; 
         defenderHP = 0; 
@@ -192,6 +192,7 @@ $(document).ready(function(){
     function checkDefeat() {
       if (userHP <= 0) {
         alert('Defeat!'); 
+        userExplosion(); 
         user.hide(); 
         userPlayer = false; 
         userHP = 0; 
@@ -207,7 +208,7 @@ $(document).ready(function(){
         alert('You WIN!!'); 
         reset(); 
       } else if (userHP <= 0) {
-        alert('You LOSE!!'); 
+        setTimeout(alert('You LOSE!!'), 3000);  //Issue with user explostion     
         reset(); 
 
       }
@@ -253,10 +254,26 @@ $(document).ready(function(){
       
     }
     
-    
-    // $('#coin-image').html("<img src='http://random-ize.com/coin-flip/us-quarter/us-quarter-back.jpg'>"); 
-    // .remove()
-    
+    ///Explostion functions
+    function defenderExplosion() {
+      $('.defenderBox').html("<img id='explode' src='../RPG-Game/assets/images/explode.gif' alt ='image' />");
+      $('#explode').animate({ opacity: "1"});
+      setTimeout(clearExplosion, 2000); 
+    }
+
+    function userExplosion() { //----------------issue with userExplosion
+      $('.playerBox').html("<img id='explode' src='../RPG-Game/assets/images/explode.gif' alt ='image' />");
+      $('#explode').animate({ opacity: "1"});
+      setTimeout(clearExplosion, 2000); 
+    }
+
+    function clearExplosion() {
+      $('#explode').animate({ opacity: "0"});
+      $('#explode').remove(); 
+      // $('.defenderBox').html("<img src='../RPG-Game/assets/images/explode.gif' alt ='image' />");
+    }
+
+
 } // END gamePlay()
 
 

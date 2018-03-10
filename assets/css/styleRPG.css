@@ -41,8 +41,17 @@ p {
   line-height: .4; 
 }
 
+.characters {
+  z-index: 1;
+}
+
 .textDisplay p {
   text-align: left; 
   margin: 10px; 
   
+}
+
+#explode {
+  z-index: 0;
+  opacity: 0; 
 }
