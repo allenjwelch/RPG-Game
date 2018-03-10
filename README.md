@@ -11,3 +11,9 @@ Updates Needed:
 - Still needs Winning screen and game reset after defeating all defenders
 - SdFX
 - Change Alert message to something more...
+- Bug with Round 2, user selection automatically goes to defender. 
+
+Key concepts learned from this exercise:
+- moving elements (.append()) vs. creating elements (.html())in the DOM
+- this
+
