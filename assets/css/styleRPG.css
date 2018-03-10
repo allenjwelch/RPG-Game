@@ -1,14 +1,60 @@
+* {
+  font-family: 'Slackey', cursive;
+}
+
 body {
   background-image: url('../images/background2.jpg'); 
 }
 
-.img-responsive {
-  /* min-width: 100px;
-  min-width: 100px;  */
+h1 {
+  font-family: 'Bungee', cursive;
+  text-align: center; 
+  font-size: 80px; 
+  color: rgb(233, 235, 234); 
+  text-shadow: 5px 5px black;
+}
+
+h2 {
+  font-family: 'Slackey', cursive;
+}
+
+h5, h3, p {
+  font-family: 'Slackey', cursive;
+}
+
+h2 {
+  font-family: 'Slackey', cursive;
+  text-shadow: 5px 5px black;
 }
 
 .panel {
+  border: 0; 
+}
+
+#mechaCard {
+  position: relative; 
   /* border: 0; 
   opacity: .5; */
   /* background-color: black;  */
 }
+
+p {
+  text-align: center; 
+  font-weight: bold; 
+  line-height: .4; 
+}
+
+.textDisplay p {
+  text-align: left; 
+  margin: 10px; 
+  
+}
+
+
+/* .centered {
+  position: absolute;
+  /* top: 50%; */
+  bottom: 0; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */

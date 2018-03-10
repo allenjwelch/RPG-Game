@@ -1,6 +1,8 @@
 // VARIABLES
 var userScore = 0; 
 var user; 
+var userStats; 
+var defenderStats;
 var defender; 
 var userPlayer = false; 
 var defenderPlayer = false;
@@ -26,7 +28,7 @@ function gamePlay() {
 
   for (i = 0; i < 4; i++) {
     hp[i] = (Math.floor(Math.random() * 100)+50); 
-    ap[i] = (Math.floor(Math.random() * 100)+1); 
+    ap[i] = (Math.floor(Math.random() * 100)+20); 
     cap[i] = (Math.floor(Math.random() * 100)+20);  //---- MAY NEED TO LOWER #s
   } 
   console.log('hp:', hp); 
@@ -41,11 +43,29 @@ function gamePlay() {
 
   // console.log("attribute check", mecha, zord, iron, gundam); //-----Checks value assignment
 
-  
+  // Display HP and Attack Power on screen. 
+  $('#mechaHP').text(hp[0]); 
+  $('#mechaAP').text(ap[0]); 
+  $('#mechaCAP').text(cap[0]); 
+
+  $('#zordHP').text(hp[1]); 
+  $('#zordAP').text(ap[1]); 
+  $('#zordCAP').text(cap[1]); 
+
+  $('#ironHP').text(hp[2]); 
+  $('#ironAP').text(ap[2]);
+  $('#ironCAP').text(cap[2]); 
+ 
+  $('#gundamHP').text(hp[3]); 
+  $('#gundamAP').text(ap[3]); 
+  $('#gundamCAP').text(cap[3]); 
+
+
   $('#startingPlayerRow').on('click', '.characters', function() {
   
     if (userPlayer === false && defenderPlayer === false) {
       user=($(this)); // ------ Check this later.....
+      userStats= ($(this)).attr('id'); 
       userPlayer = true; 
       userHP = ($(this).attr("hp"));
       userHP = parseInt(userHP);
@@ -54,45 +74,130 @@ function gamePlay() {
       console.log('userHP:', userHP, "userAP:", userAP);
       console.log(userPlayer); 
       $('.playerBox').html(user); 
+      
+      switch(userStats) {
+        case 'mecha':
+          userStats = $('#mechaStats'); 
+          break; 
+        case 'zord':
+          userStats = $('#zordStats'); 
+          break; 
+        case 'iron':
+          userStats = $('#ironStats'); 
+          break; 
+        case 'gundam':
+          userStats = $('#gundamStats'); 
+          break; 
+        default:
+      }
+      
+      console.log(userStats); 
+
+      userStats.empty(); 
+      $('#userHP').text(userHP); 
+      $('#userAP').text(userAP); 
+
+
+      // $('#mechaStats').prependTo('.textDisplay'); 
+
       // add empty() to toprow box. 
 
     
     } else if (userPlayer === true && defenderPlayer === false) {
       defender=($(this)); // ------ Check this later.....
+      defenderStats= ($(this)).attr('id'); 
       defenderPlayer = true; 
       defenderHP = ($(this).attr("hp"));
       defenderHP = parseInt(defenderHP);
       defenderCAP = ($(this).attr("cap"));
       defenderCAP = parseInt(defenderCAP);
-      console.log('defenderrHP:', defenderHP, "defenderCAP:", defenderCAP);
+      console.log('defenderHP:', defenderHP, "defenderCAP:", defenderCAP);
       $('.defenderBox').html(defender); 
+      
+      switch(defenderStats) {
+        case 'mecha':
+          defenderStats = $('#mechaStats'); 
+          break; 
+        case 'zord':
+          defenderStats = $('#zordStats'); 
+          break; 
+        case 'iron':
+          defenderStats = $('#ironStats'); 
+          break; 
+        case 'gundam':
+          defenderStats = $('#gundamStats'); 
+          break; 
+        default:
+      }
 
+      defenderStats.empty(); 
+      $('#defenderHP').text(defenderHP); 
+      $('#defenderCAP').text(defenderCAP); 
+
+      // $('#zordStats').prependTo('.defenderStats'); 
+      
+      
     } else if (userPlayer === true && defenderPlayer === true) {
       return; 
     } // End player select IF
-
-  }); // END on.click ()
     
-  $('#display').on('click', '#fight', function() {
-     console.log('button clicked!'); 
-     
+  }); // END on.click ()
+  
+  $('.button').on('click', '#fight', function() {
+    console.log('button clicked!'); 
+    if (userPlayer === true && defenderPlayer === true) {
+      attack(); 
+      checkVictory(); 
+      checkDefeat(); 
+    }
   }); 
+  
+  // FUNCTIONS
+  function attack() {
+    defenderHP = defenderHP - userAP; 
+    userAP += userAP; 
+    if (defenderHP > 0) {
+      userHP = userHP - defenderCAP; 
+    }
+    console.log('userAP:', userAP, 'defenderHP:', defenderHP, 'userHP:', userHP)
+    $('#userHP').text(userHP); 
+    $('#userAP').text(userAP); 
+    $('#defenderHP').text(defenderHP); 
+    $('#defenderCAP').text(defenderCAP); 
+  }
+  
+  function checkVictory() {
+    if (defenderHP <= 0) {
+      alert('Victory!'); 
+      defender.hide(); 
+      defenderPlayer = false; 
+      defenderHP = 0; 
+      defenderCAP = 0;  
+    }
+  }
 
+  function checkDefeat() {
+    if (userHP <= 0) {
+      alert('Defeat!'); 
+      user.hide(); 
+      userPlayer = false; 
+      userHP = 0; 
+      userAP = 0; 
+    }
+  }
 
-  console.log(userPlayer); 
+  function checkWin() {
 
+  }
+  
+  
   // $('#coin-image').html("<img src='http://random-ize.com/coin-flip/us-quarter/us-quarter-back.jpg'>"); 
   // .remove()
-
+  
 } // END gamePlay()
 
 
-// FUNCTIONS
 
-
-
-
-// ----------- randomally create values for hp, ap, & cap
 
 
 
