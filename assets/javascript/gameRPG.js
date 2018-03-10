@@ -13,6 +13,7 @@ var defenderHP = 0;
 var defenderCAP = 0;  
 var explosion; 
 var audio = new Audio("../RPG-Game/assets/images/explosion.mp3");
+var music = new Audio("../RPG-Game/assets/images/strider.mp3");
 
 
 // attribute variables
@@ -24,16 +25,15 @@ $(document).ready(function(){
   
   // GAME PLAY FUNCTION
   function gamePlay() {
-    
+    music.volume = .1; 
+    music.play(); 
     
     // $('.defenderBox').html("<img src='../RPG-Game/assets/images/explode.gif' alt ='image' />"); 
   
     
-
-    
     for (i = 0; i < 4; i++) {
       hp[i] = (Math.floor(Math.random() * 100)+50); 
-      ap[i] = (Math.floor(Math.random() * 100)+20); 
+      ap[i] = (Math.floor(Math.random() * 100)+10); 
       cap[i] = (Math.floor(Math.random() * 100)+20);  //---- MAY NEED TO LOWER #s
     } 
     console.log('hp:', hp); 
@@ -175,7 +175,7 @@ $(document).ready(function(){
     
     function checkVictory() {
       if (defenderHP <= 0) {
-        alert('Victory'); 
+        // alert('Victory'); 
         audio.play(); 
         defenderExplosion();  
         defender.hide(); 
@@ -188,17 +188,16 @@ $(document).ready(function(){
     
     function checkDefeat() {
       if (userHP <= 0) {
-        alert('Defeat!'); 
+        // alert('Defeat!'); 
         audio.play(); 
         userExplosion(); 
         user.hide(); 
         userPlayer = false; 
         userHP = 0; 
         userAP = 0; 
-        userScore--; 
       }
     }
-
+    
     function checkWin() {
       if (victory === 4) {
         userScore++; 
@@ -206,7 +205,9 @@ $(document).ready(function(){
         alert('You WIN!!'); 
         reset(); 
       } else if (userHP <= 0) {
-        setTimeout(alert('You LOSE!!'), 3000);  //Issue with user explostion     
+        alert('You LOSE!!')
+        // setTimeout(alert('You LOSE!!'), 3000);  //Issue with user explostion     
+        userScore--; 
         reset(); 
 
       }
@@ -270,6 +271,25 @@ $(document).ready(function(){
       $('#explode').remove(); 
     }
 
+    function winner() {
+      $('#winlose').append(' WINNER!'); 
+      $('#winlose').animate({"font-size":"50"})
+      $('#winlose').animate({"font-size":"20"})
+      setTimeout(clearWinLose, 800); 
+    }
+
+    function clearWinLose() {
+      $('#winlose').remove(); 
+    }
+
+    function loser() {
+      $('#winlose').append(' Try Again!'); 
+      $('#winlose').animate({"font-size":"50"})
+      $('#winlose').animate({"font-size":"20"})
+      setTimeout(clearWinLose, 800); 
+    }
+
+    
 
 } // END gamePlay()
 
