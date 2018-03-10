@@ -31,11 +31,8 @@ h2 {
   border: 0; 
 }
 
-#mechaCard {
-  position: relative; 
-  /* border: 0; 
-  opacity: .5; */
-  /* background-color: black;  */
+.button {
+  margin-bottom: 10px; 
 }
 
 p {
@@ -49,12 +46,3 @@ p {
   margin: 10px; 
   
 }
-
-
-/* .centered {
-  position: absolute;
-  /* top: 50%; */
-  bottom: 0; 
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
