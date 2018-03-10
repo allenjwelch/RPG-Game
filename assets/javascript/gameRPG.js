@@ -251,7 +251,6 @@ $(document).ready(function(){
       //  $('.mechaCard').prepend("<img src='assets/images/mechaGodzilla.png'>"); 
 
       
-      gamePlay(); 
     }
     
     
