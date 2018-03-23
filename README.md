@@ -2,6 +2,8 @@
 
 https://allenjwelch.github.io/RPG-Game/
 
+![title image](RobotWars.PNG)
+
 Select a player from the top screen then choose defender to fight against. 
 Click the 'Fight!' button to attack 
 Each attack will receive a counter attack from defender unless the defender is defeated. 
